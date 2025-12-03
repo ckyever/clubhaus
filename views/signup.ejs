@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <form class="signup-form" action="/signup" method="POST">
+      <input
+        type="text"
+        name="username"
+        aria-label="Username"
+        placeholder="Username"
+        maxlength="50"
+        required
+      />
+      <input
+        type="text"
+        name="firstname"
+        aria-label="First name"
+        placeholder="First name"
+        maxlength="50"
+      />
+      <input
+        type="text"
+        name="lastname"
+        aria-label="Last name"
+        placeholder="Last name"
+        maxlength="50"
+      />
+      <input
+        type="password"
+        name="password"
+        aria-label="Password"
+        placeholder="Password"
+        maxlength="255"
+        required
+      />
+      <input
+        type="password"
+        name="confirm-password"
+        aria-label="Confirm password"
+        placeholder="Confirm password"
+        maxlength="255"
+        required
+      />
+      <button type="submit">Sign Up</button>
+    </form>
+  </body>
+</html>

@@ -1,6 +1,7 @@
 import express from "express";
 import path from "node:path";
 import { homeRouter } from "./routes/homeRouter.js";
+import { signupRouter } from "./routes/signupRouter.js";
 
 const currentDirectory = process.cwd();
 const app = express();
@@ -13,6 +14,7 @@ const assetsPath = path.join(currentDirectory, "public");
 app.use(express.static(assetsPath));
 
 app.use("/", homeRouter);
+app.use("/signup", signupRouter);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, (error) => {
