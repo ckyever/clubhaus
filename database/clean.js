@@ -6,6 +6,7 @@ import { Client } from "pg";
 const SQL = `
 DROP TABLE IF EXISTS posts;
 DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS session;
 `;
 
 async function main() {
