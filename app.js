@@ -2,6 +2,7 @@ import express from "express";
 import path from "node:path";
 import { homeRouter } from "./routes/homeRouter.js";
 import { signupRouter } from "./routes/signupRouter.js";
+import { loginRouter } from "./routes/loginRouter.js";
 import passport from "passport";
 import session from "express-session";
 import sessionStore from "connect-pg-simple";
@@ -41,6 +42,7 @@ app.use(express.static(assetsPath));
 
 app.use("/", homeRouter);
 app.use("/signup", signupRouter);
+app.use("/login", loginRouter);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, (error) => {
