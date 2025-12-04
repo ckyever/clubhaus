@@ -33,6 +33,7 @@ app.use(
 app.use(passport.session());
 app.use(express.urlencoded({ extended: true }));
 
+// Make user info available to middleware and views
 app.use((req, res, next) => {
   res.locals.currentUser = req.user;
   next();
