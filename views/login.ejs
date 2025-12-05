@@ -27,6 +27,9 @@
       />
       <button type="submit">Login</button>
     </form>
+    <% if (errorMessage) { %>
+      <div><%=errorMessage%></div>
+    <% } %>
     <div>Don't have an account? <a href="/signup">Sign Up</a></div>
   </body>
 </html>

@@ -12,6 +12,7 @@ import sessionStore from "connect-pg-simple";
 import { pool } from "./database/pool.js";
 import "dotenv/config"
 import { initPassport } from "./controllers/authenticateController.js";
+import flash from "connect-flash";
 
 const currentDirectory = process.cwd();
 const app = express();
@@ -31,6 +32,7 @@ app.use(
   })
 );
 app.use(passport.session());
+app.use(flash());
 app.use(express.urlencoded({ extended: true }));
 
 // Make user info available to middleware and views

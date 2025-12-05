@@ -7,6 +7,7 @@ loginRouter.get("/", getLoginPage);
 loginRouter.post("/", passport.authenticate("local", {
   successRedirect: "/",
   failureRedirect: "/",
+  failureFlash: true,
 }));
 
 export { loginRouter };

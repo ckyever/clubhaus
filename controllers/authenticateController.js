@@ -6,6 +6,7 @@ import { compare } from "bcryptjs";
 const initPassport = () => {
   passport.use(
     new LocalStrategy(async (username, password, done) => {
+      const errorMessage = "Incorrect username or password";
       try {
         const { rows } = await pool.query(
           "SELECT * FROM users WHERE username = $1",
@@ -14,11 +15,11 @@ const initPassport = () => {
         const user = rows[0];
 
         if (!user) {
-          return done(null, false, { message: "Incorrect username" });
+          return done(null, false, { message: errorMessage });
         }
         const match = await compare(password, user.password);
         if (!match) {
-          return done(null, false, { message: "Incorrect password" });
+          return done(null, false, { message: errorMessage });
         }
         return done(null, user);
       } catch (err) {
