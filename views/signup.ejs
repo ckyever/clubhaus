@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
     <link rel="stylesheet" href="/styles.css" />
+    <script src="/signup.js" defer></script>
   </head>
   <body>
     <h1>Clubhaus</h1>
@@ -43,15 +44,18 @@
         maxlength="255"
         required
       />
-      <input
-        type="password"
-        name="confirm-password"
-        id="confirm-password"
-        aria-label="Confirm password"
-        placeholder="Confirm password"
-        maxlength="255"
-        required
-      />
+      <div>
+        <input
+          type="password"
+          name="confirm-password"
+          id="confirm-password"
+          aria-label="Confirm password"
+          placeholder="Confirm password"
+          maxlength="255"
+          required
+        />
+        <span id="confirm-password-info"></span>
+      </div>
       <button type="submit">Sign Up</button>
     </form>
     <%- include("partials/errors.ejs") %>
