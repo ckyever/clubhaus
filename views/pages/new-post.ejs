@@ -1,0 +1,11 @@
+<div class="new-post-page">
+  <h2>Create a new post</h2>
+  <form action="/new-post" method="POST">
+    <label for="title">Title: </label>
+    <input id="title" name="title" required />
+    <label for="body">Body: </label>
+    <textarea id="body" name="body" required></textarea>
+    <button type="submit">Post</button>
+  </form>
+  <%- include("../partials/errors.ejs") %>
+</div>

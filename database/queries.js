@@ -24,4 +24,13 @@ const getUser = async (username) => {
   return rows[0];
 };
 
-export { insertUser, getUser };
+const insertPost = async (title, body, users_id) => {
+  const result = await pool.query(
+    `INSERT INTO posts (title, body, created_on, users_id) VALUES ($1, $2, NOW(), $3)`,
+    [title, body, users_id]
+  );
+
+  return result.rowCount === 1;
+};
+
+export { insertUser, getUser, insertPost };
