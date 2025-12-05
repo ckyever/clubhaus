@@ -33,4 +33,18 @@ const insertPost = async (title, body, users_id) => {
   return result.rowCount === 1;
 };
 
-export { insertUser, getUser, insertPost };
+const getPosts = async () => {
+  const { rows } = await pool.query(
+    `SELECT
+       posts.*,
+       users.username AS username,
+       users.firstname AS firstname,
+       users.lastname AS lastname
+     FROM posts 
+     LEFT JOIN users ON (users.id = posts.users_id)
+     ORDER BY created_on DESC`
+  );
+  return rows;
+};
+
+export { insertUser, getUser, insertPost, getPosts };

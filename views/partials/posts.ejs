@@ -1,0 +1,12 @@
+<ul>
+  <% posts.forEach(post => { %> <% const authorText = (post.firstname) ?
+  `${post.firstname} (${post.username})` : post.username %>
+
+  <li>
+    <h3><%= post.title %></h3>
+    <span><%= authorText %></span>
+    <span><%= post.created_on %></span>
+    <p><%= post.body %></p>
+  </li>
+  <% }); %>
+</ul>
