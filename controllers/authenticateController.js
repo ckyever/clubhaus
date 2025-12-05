@@ -2,17 +2,14 @@ import passport from "passport";
 import LocalStrategy from "passport-local";
 import { pool } from "../database/pool.js";
 import { compare } from "bcryptjs";
+import { getUser } from "../database/queries.js";
 
 const initPassport = () => {
   passport.use(
     new LocalStrategy(async (username, password, done) => {
       const errorMessage = "Incorrect username or password";
       try {
-        const { rows } = await pool.query(
-          "SELECT * FROM users WHERE username = $1",
-          [username]
-        );
-        const user = rows[0];
+        const user = await getUser(username);
 
         if (!user) {
           return done(null, false, { message: errorMessage });
@@ -44,6 +41,6 @@ const initPassport = () => {
       done(err);
     }
   });
-}
+};
 
-export {initPassport}
+export { initPassport };

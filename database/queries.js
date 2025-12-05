@@ -17,4 +17,11 @@ const insertUser = async (username, password, firstname, lastname) => {
   return rows[0] ?? null;
 };
 
-export { insertUser };
+const getUser = async (username) => {
+  const { rows } = await pool.query("SELECT * FROM users WHERE username = $1", [
+    username,
+  ]);
+  return rows[0];
+};
+
+export { insertUser, getUser };

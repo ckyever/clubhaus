@@ -1,4 +1,4 @@
-import { insertUser } from "../database/queries.js";
+import { getUser, insertUser } from "../database/queries.js";
 import { hash } from "bcryptjs";
 import { body, validationResult, matchedData } from "express-validator";
 
@@ -53,9 +53,19 @@ const createUser = [
       });
     }
 
+    const { username, password, firstname, lastname } = matchedData(req);
+    const existingUser = await getUser(username);
+    if (existingUser) {
+      return res.render("signup", {
+        title: "Clubhaus | Sign Up",
+        errors: [
+          { msg: `An account with the username "${username}" already exists` },
+        ],
+      });
+    }
+
     let newUser;
     try {
-      const { username, password, firstname, lastname } = matchedData(req);
       const SALT_ROUNDS = 10;
       const hashedPassword = await hash(password, SALT_ROUNDS);
       newUser = await insertUser(username, hashedPassword, firstname, lastname);
