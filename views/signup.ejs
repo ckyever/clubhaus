@@ -12,6 +12,7 @@
       <input
         type="text"
         name="username"
+        id="username"
         aria-label="Username"
         placeholder="Username"
         maxlength="255"
@@ -20,6 +21,7 @@
       <input
         type="text"
         name="firstname"
+        id="firstname"
         aria-label="First name"
         placeholder="First name"
         maxlength="50"
@@ -27,6 +29,7 @@
       <input
         type="text"
         name="lastname"
+        id="lastname"
         aria-label="Last name"
         placeholder="Last name"
         maxlength="50"
@@ -34,6 +37,7 @@
       <input
         type="password"
         name="password"
+        id="password"
         aria-label="Password"
         placeholder="Password"
         maxlength="255"
@@ -42,6 +46,7 @@
       <input
         type="password"
         name="confirm-password"
+        id="confirm-password"
         aria-label="Confirm password"
         placeholder="Confirm password"
         maxlength="255"
@@ -49,6 +54,7 @@
       />
       <button type="submit">Sign Up</button>
     </form>
+    <%- include("partials/errors.ejs") %>
     <div>Already have an account? <a href="/login">Login</a></div>
   </body>
 </html>

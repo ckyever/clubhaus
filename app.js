@@ -10,7 +10,7 @@ import passport from "passport";
 import session from "express-session";
 import sessionStore from "connect-pg-simple";
 import { pool } from "./database/pool.js";
-import "dotenv/config"
+import "dotenv/config";
 import { initPassport } from "./controllers/authenticateController.js";
 import flash from "connect-flash";
 
