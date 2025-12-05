@@ -10,15 +10,18 @@
   <body>
     <h1>Clubhaus</h1>
     <form class="signup-login" action="/signup" method="POST">
-      <input
-        type="text"
-        name="username"
-        id="username"
-        aria-label="Username"
-        placeholder="Username"
-        maxlength="255"
-        required
-      />
+      <div>
+        <div id="username-info"></div>
+        <input
+          type="text"
+          name="username"
+          id="username"
+          aria-label="Username"
+          placeholder="Username"
+          maxlength="255"
+          required
+        />
+      </div>
       <input
         type="text"
         name="firstname"

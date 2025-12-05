@@ -6,6 +6,7 @@ import { loginRouter } from "./routes/loginRouter.js";
 import { logoutRouter } from "./routes/logoutRouter.js";
 import { vipRouter } from "./routes/vipRouter.js";
 import { settingsRouter } from "./routes/settingsRouter.js";
+import { usernameRouter } from "./routes/usernameRouter.js";
 import passport from "passport";
 import session from "express-session";
 import sessionStore from "connect-pg-simple";
@@ -53,6 +54,7 @@ app.use("/login", loginRouter);
 app.use("/logout", logoutRouter);
 app.use("/vip", vipRouter);
 app.use("/settings", settingsRouter);
+app.use("/username", usernameRouter);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, (error) => {
