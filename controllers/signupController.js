@@ -53,16 +53,27 @@ const createUser = [
       });
     }
 
+    let newUser;
     try {
       const { username, password, firstname, lastname } = matchedData(req);
       const SALT_ROUNDS = 10;
       const hashedPassword = await hash(password, SALT_ROUNDS);
-      await insertUser(username, hashedPassword, firstname, lastname);
-      res.redirect("/");
+      newUser = await insertUser(username, hashedPassword, firstname, lastname);
     } catch (error) {
-      console.error(error);
-      next(error);
+      console.error("Failed to insert user record");
+      return res.render("signup", {
+        title: "Clubhaus | Sign Up",
+        errors: [{ msg: "Unable to create an account" }],
+      });
     }
+
+    req.login(newUser, (error) => {
+      if (error) {
+        console.error("Passport login failed after sign up", error);
+        return next(error);
+      }
+      return res.redirect("/");
+    });
   },
 ];
 
