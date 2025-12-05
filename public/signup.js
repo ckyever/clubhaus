@@ -1,26 +1,28 @@
-const password = document.getElementById("password");
-const passwordConfirmation = document.getElementById("confirm-password");
+const passwordInput = document.getElementById("password");
+const passwordConfirmationInput = document.getElementById("confirm-password");
 const passwordConfirmationInfo = document.getElementById(
   "confirm-password-info"
 );
 
-const handlePasswordChanges = (password, passwordConfirmation) => {
+const validatePasswords = (password, passwordConfirmation) => {
   if (passwordConfirmation.length === 0) {
     passwordConfirmationInfo.innerText = "";
   } else {
     if (passwordConfirmation === password) {
       passwordConfirmationInfo.innerText = "Matching ✅";
+      passwordConfirmationInput.setCustomValidity("");
     } else {
       passwordConfirmationInfo.innerText = "Passwords do not match ⛔";
+      passwordConfirmationInput.setCustomValidity("Passwords must match");
     }
   }
 };
 
-password.addEventListener("input", () => {
-  passwordConfirmation.value = "";
+passwordInput.addEventListener("input", () => {
+  passwordConfirmationInput.value = "";
   passwordConfirmationInfo.textContent = "";
 });
 
-passwordConfirmation.addEventListener("input", (event) => {
-  handlePasswordChanges(password.value, event.target.value);
+passwordConfirmationInput.addEventListener("input", (event) => {
+  validatePasswords(passwordInput.value, event.target.value);
 });
