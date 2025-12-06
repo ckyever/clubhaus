@@ -1,6 +1,7 @@
 <ul>
-  <% posts.forEach(post => { %> <% const authorText = (post.firstname) ?
-  `${post.firstname} (${post.username})` : post.username %>
+  <% posts.forEach(post => { %> <% let authorText = "Hidden"; if (currentUser) {
+  if (currentUser.is_vip) { authorText = (post.firstname) ? `${post.firstname}
+  (${post.username})` : post.username } } %>
 
   <li>
     <h3><%= post.title %></h3>
