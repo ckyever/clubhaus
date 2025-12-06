@@ -1,9 +1,10 @@
 <div class="homepage">
   <h2>Homepage</h2>
+  <% if (currentUser) { %>
   <div>
     Welcome back <%=currentUser.firstname ? currentUser.firstname :
     currentUser.username%>!
   </div>
   <a href="/new-post">Create a new post</a>
-  <%- include("../partials/posts") %>
+  <% } %> <%- include("../partials/posts") %>
 </div>
