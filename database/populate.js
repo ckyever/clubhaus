@@ -34,6 +34,13 @@ WITH (OIDS=FALSE);
 ALTER TABLE "session" ADD CONSTRAINT "session_pkey" PRIMARY KEY ("sid") NOT DEFERRABLE INITIALLY IMMEDIATE;
 
 CREATE INDEX "IDX_session_expire" ON "session" ("expire");
+
+CREATE TABLE IF NOT EXISTS secrets (
+  vip VARCHAR(50),
+  admin VARCHAR(50)
+);
+
+INSERT INTO secrets (vip, admin) VALUES ('mickeymouseclubhouse', 'givemeadmin');
 `;
 
 async function main() {
