@@ -3,6 +3,7 @@
   <form class="edit-profile" action="/profile" method="POST">
     <div>
       <div id="username-info"></div>
+      <label for="username">Username: </label>
       <input
         type="text"
         name="username"
@@ -14,6 +15,7 @@
         required
       />
     </div>
+    <label for="firstname">First name: </label>
     <input
       type="text"
       name="firstname"
@@ -23,6 +25,7 @@
       maxlength="50"
       value="<%= currentUser.firstname %>"
     />
+    <label for="lastname">Last name: </label>
     <input
       type="text"
       name="lastname"
