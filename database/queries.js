@@ -24,6 +24,15 @@ const getUser = async (username) => {
   return rows[0];
 };
 
+const updateUserProfile = async (userId, username, firstname, lastname) => {
+  const result = await pool.query(
+    "UPDATE users SET username = $1, firstname = $2, lastname = $3 WHERE users.id = $4",
+    [username, firstname, lastname, userId]
+  );
+
+  return result.rowCount === 1;
+};
+
 const updateUserPrivileges = async (userId, isVip, isAdmin) => {
   const result = await pool.query(
     "UPDATE users SET is_vip = $1, is_admin = $2 WHERE id = $3",
@@ -78,6 +87,7 @@ export {
   insertUser,
   getUser,
   updateUserPrivileges,
+  updateUserProfile,
   insertPost,
   getPosts,
   deletePostById,

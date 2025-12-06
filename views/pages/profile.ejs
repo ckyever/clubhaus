@@ -1,3 +1,39 @@
 <div class="profile-page">
   <h2>Profile</h2>
+  <form class="edit-profile" action="/profile" method="POST">
+    <div>
+      <div id="username-info"></div>
+      <input
+        type="text"
+        name="username"
+        id="username"
+        aria-label="Username"
+        placeholder="Username"
+        maxlength="255"
+        value="<%= currentUser.username %>"
+        required
+      />
+    </div>
+    <input
+      type="text"
+      name="firstname"
+      id="firstname"
+      aria-label="First name"
+      placeholder="First name"
+      maxlength="50"
+      value="<%= currentUser.firstname %>"
+    />
+    <input
+      type="text"
+      name="lastname"
+      id="lastname"
+      aria-label="Last name"
+      placeholder="Last name"
+      maxlength="50"
+      value="<%= currentUser.lastname %>"
+    />
+    <button type="submit">Update</button>
+    <button type="reset">Reset</button>
+  </form>
+  <%- include("../partials/errors.ejs") %>
 </div>
