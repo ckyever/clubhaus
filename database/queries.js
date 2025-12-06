@@ -24,6 +24,14 @@ const getUser = async (username) => {
   return rows[0];
 };
 
+const updateUserPrivileges = async (userId, isVip, isAdmin) => {
+  const result = await pool.query(
+    "UPDATE users SET is_vip = $1, is_admin = $2 WHERE id = $3",
+    [isVip, isAdmin, userId]
+  );
+  return result.rowCount > 0;
+};
+
 const insertPost = async (title, body, users_id) => {
   const result = await pool.query(
     `INSERT INTO posts (title, body, created_on, users_id) VALUES ($1, $2, NOW(), $3)`,
@@ -47,4 +55,26 @@ const getPosts = async () => {
   return rows;
 };
 
-export { insertUser, getUser, insertPost, getPosts };
+const isAdminPassphraseCorrect = async (passphrase) => {
+  const result = await pool.query("SELECT 1 FROM secrets WHERE admin = $1", [
+    passphrase,
+  ]);
+  return result.rowCount === 1;
+};
+
+const isVipPassphraseCorrect = async (passphrase) => {
+  const result = await pool.query("SELECT 1 FROM secrets WHERE vip = $1", [
+    passphrase,
+  ]);
+  return result.rowCount === 1;
+};
+
+export {
+  insertUser,
+  getUser,
+  updateUserPrivileges,
+  insertPost,
+  getPosts,
+  isAdminPassphraseCorrect,
+  isVipPassphraseCorrect,
+};

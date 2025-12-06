@@ -1,7 +1,8 @@
 import { Router } from "express";
-import { getVipPage } from "../controllers/vipController.js";
+import { getVipPage, submitPassphrase } from "../controllers/vipController.js";
 
 const vipRouter = Router();
 vipRouter.get("/", getVipPage);
+vipRouter.post("/", submitPassphrase);
 
 export { vipRouter };

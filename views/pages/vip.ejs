@@ -1,3 +1,28 @@
 <div class="vip-page">
   <h2>VIP</h2>
+  <% if (currentUser.is_vip || currentUser.is_admin) { %>
+  <p>
+    Congrats you are a<%= currentUser.is_admin ? "n Admin" : " VIP" %>, you can
+    now see the authors of posts
+  </p>
+  <% } else { %>
+  <p>
+    To get VIP access and see authors of posts enter the secret phrase.<br />
+    It is three words with no space.<br />
+    Begin with black circles and white gloves.<br />
+    Then end with the name of <i>this</i> place.
+  </p>
+  <form action="/vip" method="POST">
+    <input
+      type="text"
+      name="passphrase"
+      id="passphrase"
+      aria-label="Enter the passphrase"
+      placeholder="Enter the passphrase"
+      maxlength="50"
+      required
+    />
+    <button type="submit">Submit</button>
+  </form>
+  <%- include("../partials/errors") %> <% } %>
 </div>
