@@ -7,6 +7,7 @@ const SQL = `
 DROP TABLE IF EXISTS posts;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS session;
+DROP TABLE IF EXISTS secrets;
 `;
 
 async function main() {
