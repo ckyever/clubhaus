@@ -55,7 +55,7 @@ const getPosts = async () => {
   return rows;
 };
 
-const deletePost = async (postId) => {
+const deletePostById = async (postId) => {
   const result = await pool.query("DELETE FROM posts WHERE id = $1", [postId]);
   return result.rowCount === 1;
 };
@@ -80,7 +80,7 @@ export {
   updateUserPrivileges,
   insertPost,
   getPosts,
-  deletePost,
+  deletePostById,
   isAdminPassphraseCorrect,
   isVipPassphraseCorrect,
 };

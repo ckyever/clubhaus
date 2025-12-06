@@ -1,4 +1,4 @@
-import { insertPost } from "../database/queries.js";
+import { insertPost, deletePostById } from "../database/queries.js";
 import { body, validationResult, matchedData } from "express-validator";
 
 const getNewPostPage = (req, res) => {
@@ -52,4 +52,9 @@ const createPost = [
   },
 ];
 
-export { getNewPostPage, createPost };
+const deletePost = async (req, res, next) => {
+  await deletePostById(req.params.id);
+  res.redirect("/");
+};
+
+export { getNewPostPage, createPost, deletePost };

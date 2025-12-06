@@ -7,6 +7,9 @@
     <h3><%= post.title %></h3>
     <span><%= authorText %></span>
     <span><%= post.created_on %></span>
+    <% if (currentUser && currentUser.is_admin) { %>
+    <a href="/post/<%= post.id %>/delete">Delete</a>
+    <% } %>
     <p><%= post.body %></p>
   </li>
   <% }); %>
