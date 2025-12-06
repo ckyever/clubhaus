@@ -13,32 +13,34 @@
 <ul>
   <% posts.forEach(post => { %>
     <%
-      let authorText = "Hidden";
+      let authorText = "Redacted";
+      let createdOn = null;
       if (currentUser) {
         if (currentUser.is_vip) {
           authorText = (post.firstname) ? `${post.firstname} (${post.username})` : post.username 
+
+          let createdOn;
+          const milisecondsSincePostCreated = currentUtc.getTime() - post.created_on.getTime();
+
+          // Time intervals in miliseconds
+          const SECOND = 1000;
+          const MINUTE = 1000 * 60;
+          const HOUR = 1000 * 60 * 60;
+          const DAY = 1000 * 60 * 60 * 24;
+
+          if (milisecondsSincePostCreated <= MINUTE) {
+            createdOn = "Now"; 
+          } else if (milisecondsSincePostCreated < HOUR) {
+            const minutesValue = Math.floor(milisecondsSincePostCreated/MINUTE);
+            createdOn = minutesValue > 1 ? `${minutesValue} minutes ago` : `1 minute ago`;
+          } else if (milisecondsSincePostCreated < DAY) {
+            const hoursValue = Math.floor(milisecondsSincePostCreated/HOUR);
+            createdOn = hoursValue > 1 ? `${hoursValue} hours ago` : `1 hour ago`;
+          } else {
+            const date = new Date(post.created_on);
+            createdOn = date.toLocaleString('en-AU', dateOptions);
+          }
         }
-      }
-      let createdOn;
-      const milisecondsSincePostCreated = currentUtc.getTime() - post.created_on.getTime();
-
-      // Time intervals in miliseconds
-      const SECOND = 1000;
-      const MINUTE = 1000 * 60;
-      const HOUR = 1000 * 60 * 60;
-      const DAY = 1000 * 60 * 60 * 24;
-
-      if (milisecondsSincePostCreated <= MINUTE) {
-        createdOn = "Now"; 
-      } else if (milisecondsSincePostCreated < HOUR) {
-        const minutesValue = Math.floor(milisecondsSincePostCreated/MINUTE);
-        createdOn = minutesValue > 1 ? `${minutesValue} minutes ago` : `1 minute ago`;
-      } else if (milisecondsSincePostCreated < DAY) {
-        const hoursValue = Math.floor(milisecondsSincePostCreated/HOUR);
-        createdOn = hoursValue > 1 ? `${hoursValue} hours ago` : `1 hour ago`;
-      } else {
-        const date = new Date(post.created_on);
-        createdOn = date.toLocaleString('en-AU', dateOptions);
       }
     %>
 
