@@ -55,6 +55,11 @@ const getPosts = async () => {
   return rows;
 };
 
+const deletePost = async (postId) => {
+  const result = await pool.query("DELETE FROM posts WHERE id = $1", [postId]);
+  return result.rowCount === 1;
+};
+
 const isAdminPassphraseCorrect = async (passphrase) => {
   const result = await pool.query("SELECT 1 FROM secrets WHERE admin = $1", [
     passphrase,
@@ -75,6 +80,7 @@ export {
   updateUserPrivileges,
   insertPost,
   getPosts,
+  deletePost,
   isAdminPassphraseCorrect,
   isVipPassphraseCorrect,
 };
