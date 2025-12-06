@@ -5,7 +5,7 @@ import { signupRouter } from "./routes/signupRouter.js";
 import { loginRouter } from "./routes/loginRouter.js";
 import { logoutRouter } from "./routes/logoutRouter.js";
 import { vipRouter } from "./routes/vipRouter.js";
-import { settingsRouter } from "./routes/settingsRouter.js";
+import { profileRouter } from "./routes/profileRouter.js";
 import { usernameRouter } from "./routes/usernameRouter.js";
 import { postRouter } from "./routes/postRouter.js";
 import passport from "passport";
@@ -54,7 +54,7 @@ app.use("/signup", signupRouter);
 app.use("/login", loginRouter);
 app.use("/logout", logoutRouter);
 app.use("/vip", vipRouter);
-app.use("/settings", settingsRouter);
+app.use("/profile", profileRouter);
 app.use("/username", usernameRouter);
 app.use("/post", postRouter);
 
