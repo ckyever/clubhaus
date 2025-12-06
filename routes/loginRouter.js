@@ -4,10 +4,13 @@ import passport from "passport";
 
 const loginRouter = Router();
 loginRouter.get("/", getLoginPage);
-loginRouter.post("/", passport.authenticate("local", {
-  successRedirect: "/",
-  failureRedirect: "/",
-  failureFlash: true,
-}));
+loginRouter.post(
+  "/",
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/login",
+    failureFlash: true,
+  })
+);
 
 export { loginRouter };
