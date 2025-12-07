@@ -1,7 +1,7 @@
 <% let welcomeMessage = `Hey there <b>Stranger</b>!`; %>
 <% let welcomeAction = `<a href="/signup">Sign up</a> to create your own posts`; %>
 <% if (currentUser) { %>
-  <% welcomeMessage = `Welcome back ${currentUser.firstname ? currentUser.firstname : currentUser.username}!` %>
+  <% welcomeMessage = `Welcome back <b>${currentUser.firstname ? currentUser.firstname : currentUser.username}</b>!` %>
   <% welcomeAction = `<a href="/post/new">Create a new post</a>`%>
 <% } %>
 
