@@ -138,6 +138,51 @@ form > button[type="submit"]:hover {
   background-color: var(--accent-background-colour-hovered);
 }
 
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+header {
+  padding: 0 16px;
+  position: sticky;
+  top: 20px;
+  margin: 20px 100px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 1px 4px 12px 0 rgba(0, 0, 0, 0.05);
+}
+
+header h1,
+header .spacer {
+  width: 150px;
+}
+
+nav {
+  flex: 1;
+}
+
+nav > ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+nav > ul a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.separator {
+  cursor: default;
+}
+
 .signup-login-container {
   display: flex;
   flex-direction: column;

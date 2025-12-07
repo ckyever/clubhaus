@@ -1,16 +1,21 @@
 <header>
+  <h1><a href="/">Clubhaus</a></h1>
   <nav>
-    <h1><a href="/">Clubhaus</a></h1>
     <ul>
       <li><a href="/">Home</a></li>
+      <li class="separator">•</li>
       <% if (currentUser) { %>
       <li><a href="/vip">VIP</a></li>
+      <li class="separator">•</li>
       <li><a href="/profile">Profile</a></li>
+      <li class="separator">•</li>
       <li><a href="/logout">Logout</a></li>
       <% } else { %>
       <li><a href="/login">Login</a></li>
+      <li class="separator">•</li>
       <li><a href="/signup">Sign Up</a></li>
       <% } %>
     </ul>
   </nav>
+  <div class="spacer"></div>
 </header>
