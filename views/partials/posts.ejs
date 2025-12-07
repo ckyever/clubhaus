@@ -12,7 +12,7 @@
 %>
 
 <% if (locals.posts.length > 0) { %>
-  <ul>
+  <ul class="feed">
     <% posts.forEach(post => { %>
       <%
         let authorText = "Redacted";
@@ -21,7 +21,6 @@
           if (currentUser.is_vip) {
             authorText = (post.firstname) ? `${post.firstname} (${post.username})` : post.username 
 
-            let createdOn;
             const milisecondsSincePostCreated = currentUtc.getTime() - post.created_on.getTime();
 
             // Time intervals in miliseconds
@@ -46,18 +45,20 @@
         }
       %>
 
-    <li>
+    <li class="post">
       <h3><%= post.title %></h3>
-      <span><%= authorText %></span>
-      <span><%= createdOn %></span>
-      <% if (currentUser && currentUser.is_admin) { %>
-      <a href="/post/<%= post.id %>/delete">Delete</a>
-      <% } %>
+      <div class="post-details">
+        <span class="author">~ by <b><%= authorText %></b></span>
+        <span><%= createdOn %></span>
+        <% if (currentUser && currentUser.is_admin) { %>
+        <a href="/post/<%= post.id %>/delete">Delete</a>
+        <% } %>
+      </div>
       <p><%= post.body %></p>
     </li>
     <hr>
     <% }); %>
   </ul>
 <% } else { %>
-  <div>No posts yet</div>
+  <div class="no-posts-message">No posts yet</div>
 <% } %>

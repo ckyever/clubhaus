@@ -86,9 +86,10 @@ h6 {
   --accent-text-colour: #ffffff;
   --input-background-colour: #ffffff;
   --input-text-colour: #000000;
-  --border-colour: #cbd6dd;
+  --input-border-colour: #cbd6dd;
   --focus-colour: var(--main-text-colour);
   --error-text-colour: #fa3c3c;
+  --border-colour: #ffffff;
 }
 
 :focus-visible {
@@ -120,7 +121,7 @@ button {
 input {
   background-color: var(--input-background-colour);
   color: var(--input-text-colour);
-  border: 1px solid var(--border-colour);
+  border: 1px solid var(--input-border-colour);
 }
 
 input,
@@ -180,11 +181,28 @@ nav > ul a:hover {
   text-underline-offset: 3px;
 }
 
+hr {
+  border: none;
+  height: 2px;
+  background-color: var(--border-colour);
+  margin: 20px 0;
+}
+
+h3 {
+  font-size: 1.7rem;
+  font-weight: 800;
+}
+
 .content {
   margin-left: auto;
   margin-right: auto;
   width: 1250px;
   max-width: 90vw;
+  padding: 0 40px 40px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .separator {
@@ -220,4 +238,36 @@ nav > ul a:hover {
 
 .error-message {
   color: var(--error-text-colour);
+}
+
+.welcome-card {
+  text-align: center;
+  border: 2px solid var(--border-colour);
+  padding: 16px;
+  font-size: 1.3rem;
+}
+
+.no-posts-message {
+  font-size: 1.5rem;
+  margin: 80px 0;
+}
+
+.feed {
+  width: 100%;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.post-details {
+  font-size: 0.9rem;
+  display: flex;
+  gap: 16px;
+}
+
+.author {
+  font-size: 1rem;
 }
