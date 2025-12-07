@@ -6,9 +6,9 @@ logoutRouter.get("/", (req, res, next) => {
     if (error) {
       return next(error);
     } else {
-      res.redirect("/")
+      res.redirect("/login");
     }
   });
 });
 
-export {logoutRouter}
+export { logoutRouter };
