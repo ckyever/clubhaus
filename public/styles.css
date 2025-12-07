@@ -87,6 +87,11 @@ h6 {
   --input-background-color: #ffffff;
   --input-text-color: #000000;
   --border-color: #cbd6dd;
+  --focus-colour: var(--main-text-colour);
+}
+
+:focus-visible {
+  outline-color: var(--focus-colour);
 }
 
 html {
