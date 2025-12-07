@@ -78,8 +78,82 @@ h6 {
 
 /* CSS Reset end */
 
+:root {
+  --main-background-colour: #eceef2;
+  --main-text-colour: #585a72;
+  --accent-background-colour: #38b1ce;
+  --accent-background-colour-hovered: #57b6cd;
+  --accent-text-colour: #ffffff;
+  --input-background-color: #ffffff;
+  --input-text-color: #000000;
+}
+
 html {
   font-family: "Cormorant", sans-serif;
   font-size: 1.1rem;
   font-weight: 500;
+  color: var(--main-text-colour);
+  background-color: var(--main-background-colour);
+}
+
+a {
+  text-decoration: none;
+  color: var(--accent-background-colour);
+}
+
+a:hover {
+  color: var(--accent-background-colour-hovered);
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+input {
+  background-color: var(--input-background-color);
+  color: var(--input-text-color);
+}
+
+input,
+button {
+  height: 45px;
+  padding: 8px;
+}
+
+form > button[type="submit"] {
+  background-color: var(--accent-background-colour);
+  color: var(--accent-text-colour);
+  border: none;
+}
+
+form > button[type="submit"]:hover {
+  background-color: var(--accent-background-colour-hovered);
+}
+
+.signup-login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+}
+
+.signup-login {
+  margin: 8px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.signup-login > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-login > * {
+  width: 100%;
 }
