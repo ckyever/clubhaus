@@ -57,6 +57,12 @@ app.use("/vip", vipRouter);
 app.use("/profile", profileRouter);
 app.use("/username", usernameRouter);
 app.use("/post", postRouter);
+app.use((req, res) => {
+  res.status(404).render("index", {
+    title: "Clubhaus",
+    page: "pages/error",
+  });
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, (error) => {
