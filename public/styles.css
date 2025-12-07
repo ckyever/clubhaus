@@ -125,6 +125,7 @@ input {
 }
 
 input,
+textarea,
 button {
   height: 45px;
   padding: 8px;
@@ -270,4 +271,27 @@ h3 {
 
 .author {
   font-size: 1rem;
+}
+
+.input-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-form label {
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.input-form textarea {
+  height: 600px;
+  resize: none;
+}
+
+.input-form button {
+  font-weight: 800;
+  font-size: 1.2rem;
+  margin-top: 20px;
 }

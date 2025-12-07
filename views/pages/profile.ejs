@@ -1,20 +1,18 @@
 <div class="content">
   <h2>Profile</h2>
-  <form class="edit-profile" action="/profile" method="POST">
-    <div>
-      <div id="username-info"></div>
-      <label for="username">Username: </label>
-      <input
-        type="text"
-        name="username"
-        id="username"
-        aria-label="Username"
-        placeholder="Username"
-        maxlength="255"
-        value="<%= currentUser.username %>"
-        required
-      />
-    </div>
+  <form class="input-form" action="/profile" method="POST">
+    <div id="username-info"></div>
+    <label for="username">Username: </label>
+    <input
+      type="text"
+      name="username"
+      id="username"
+      aria-label="Username"
+      placeholder="Username"
+      maxlength="255"
+      value="<%= currentUser.username %>"
+      required
+    />
     <label for="firstname">First name: </label>
     <input
       type="text"
