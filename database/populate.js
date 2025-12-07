@@ -42,8 +42,6 @@ CREATE TABLE IF NOT EXISTS secrets (
 
 CREATE UNIQUE INDEX IDX_secrets
 ON secrets ((TRUE));
-
-INSERT INTO secrets (vip, admin) VALUES ('mickeymouseclubhouse', 'givemeadmin');
 `;
 
 async function main() {
