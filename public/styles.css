@@ -180,6 +180,13 @@ nav > ul a:hover {
   text-underline-offset: 3px;
 }
 
+.content {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1250px;
+  max-width: 90vw;
+}
+
 .separator {
   cursor: default;
 }
