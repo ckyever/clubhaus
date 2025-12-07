@@ -1,12 +1,12 @@
-# Express Template
+# Clubhaus
 
-A template intended for projects built with NodeJS, Express, and EJS.
+A message board website with account creation. Built with NodeJS, Express, EJS, PostgreSQL, and PassportJS.
 
-👉 [Live Demo](https://github.com/ckyever/express-template)
+👉 [Live Demo](https://clubhaus-7tzl.onrender.com)
 
 ## Acknowledgement
 
-Inspired from [The Odin Project](https://www.theodinproject.com/paths/full-stack-javascript/courses/nodejs)
+Inspired from [The Odin Project](https://www.theodinproject.com/lessons/node-path-nodejs-members-only)
 
 ## License
 
