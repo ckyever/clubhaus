@@ -84,9 +84,9 @@ h6 {
   --accent-background-colour: #38b1ce;
   --accent-background-colour-hovered: #57b6cd;
   --accent-text-colour: #ffffff;
-  --input-background-color: #ffffff;
-  --input-text-color: #000000;
-  --border-color: #cbd6dd;
+  --input-background-colour: #ffffff;
+  --input-text-colour: #000000;
+  --border-colour: #cbd6dd;
   --focus-colour: var(--main-text-colour);
 }
 
@@ -117,9 +117,9 @@ button {
 }
 
 input {
-  background-color: var(--input-background-color);
-  color: var(--input-text-color);
-  border: 1px solid var(--border-color);
+  background-color: var(--input-background-colour);
+  color: var(--input-text-colour);
+  border: 1px solid var(--border-colour);
 }
 
 input,
