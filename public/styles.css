@@ -88,6 +88,7 @@ h6 {
   --input-text-colour: #000000;
   --border-colour: #cbd6dd;
   --focus-colour: var(--main-text-colour);
+  --error-text-colour: #fa3c3c;
 }
 
 :focus-visible {
@@ -208,4 +209,8 @@ nav > ul a:hover {
 
 .signup-login > * {
   width: 100%;
+}
+
+.error-message {
+  color: var(--error-text-colour);
 }

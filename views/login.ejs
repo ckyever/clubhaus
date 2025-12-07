@@ -15,6 +15,9 @@
   <body>
     <div class="signup-login-container">
       <h1><a href="/">Clubhaus</a></h1>
+      <% if (errorMessage) { %>
+      <div class="error-message"><%=errorMessage%></div>
+      <% } %>
       <form class="signup-login" action="/login" method="POST">
         <input
           type="text"
@@ -32,9 +35,6 @@
         />
         <button type="submit">Login</button>
       </form>
-      <% if (errorMessage) { %>
-      <div><%=errorMessage%></div>
-      <% } %>
       <div>Don't have an account? <a href="/signup">Sign Up</a></div>
     </div>
   </body>
