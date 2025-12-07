@@ -306,3 +306,14 @@ h3 {
 .error-title {
   margin-top: 200px;
 }
+
+@media (max-width: 900px) {
+  header {
+    margin: 20px 20px;
+  }
+
+  header h1,
+  header .spacer {
+    display: none;
+  }
+}
